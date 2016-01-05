@@ -8,12 +8,15 @@
     <loc>http://samzhonghk.github.io/archives/</loc>
   </url>
   <url>
-    <loc>http://samzhonghk.github.io/blog/archives/</loc>
-  </url>
-  <url>
     <loc>http://samzhonghk.github.io/blog/</loc>
   </url>
   <url>
     <loc>http://samzhonghk.github.io/</loc>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/archives/</loc>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/about/</loc>
   </url>
 </urlset>
