@@ -4,7 +4,7 @@
   <title><![CDATA[The cool tech blog of Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-05T19:18:41+13:00</updated>
+  <updated>2016-01-06T12:01:26+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -18,7 +18,11 @@
     <link href="http://samzhonghk.github.io/blog/2016/01/05/my-first-post/"/>
     <updated>2016-01-05T19:01:52+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/05/my-first-post</id>
-    <content type="html"><![CDATA[<p>Today Im going to start a new life with writing blogs.</p>
+    <content type="html"><![CDATA[<p>Happy new year everyone!Welcome to new 2016.</p>
+
+<p>Recently I found that github is an awesome platform for sharing codes.Free space and domain can be provided for blogging.</p>
+
+<p>Hopefully this is a good start to share my experience with everyone and get started to learn fresh tech stuff.</p>
 ]]></content>
   </entry>
   
