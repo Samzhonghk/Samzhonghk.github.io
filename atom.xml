@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-06T17:45:18+13:00</updated>
+  <updated>2016-01-06T18:04:15+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Set Up Octopress on OSX10.10.5]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/"/>
+    <updated>2016-01-06T18:03:44+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My first post]]></title>
