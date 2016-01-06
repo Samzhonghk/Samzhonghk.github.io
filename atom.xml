@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-06T22:43:05+13:00</updated>
+  <updated>2016-01-06T22:47:18+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -225,10 +225,7 @@ The default file extension for new posts is markdown but you can configure that 
     <link href="http://samzhonghk.github.io/blog/2016/01/05/my-first-post/"/>
     <updated>2016-01-05T19:01:52+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/05/my-first-post</id>
-    <content type="html"><![CDATA[<!--more-->
-
-
-<p>Happy new year everyone!Welcome to new 2016.</p>
+    <content type="html"><![CDATA[<p>Happy new year everyone!Welcome to new 2016.</p>
 
 <p>Recently I found that github is an awesome platform for sharing codes.Free space and domain can be provided for blogging.</p>
 
