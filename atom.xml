@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-06T22:34:56+13:00</updated>
+  <updated>2016-01-06T22:43:05+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -18,7 +18,10 @@
     <link href="http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/"/>
     <updated>2016-01-06T18:03:44+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5</id>
-    <content type="html"><![CDATA[<p>This tutorial will be directing to create your own personal blog using Octopress on OS X10.10.5 and host it on github.</p>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>This tutorial will be directing to create your own personal blog using Octopress on OS X10.10.5 and host it on github.</p>
 
 <p>The Octopress information can be obtained from <a href="http://octopress.org/docs/">Octopress offical website</a></p>
 
@@ -222,13 +225,16 @@ The default file extension for new posts is markdown but you can configure that 
     <link href="http://samzhonghk.github.io/blog/2016/01/05/my-first-post/"/>
     <updated>2016-01-05T19:01:52+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/05/my-first-post</id>
-    <content type="html"><![CDATA[<p>Happy new year everyone!Welcome to new 2016.</p>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>Happy new year everyone!Welcome to new 2016.</p>
 
 <p>Recently I found that github is an awesome platform for sharing codes.Free space and domain can be provided for blogging.</p>
 
 <p>Hopefully this is a good start to share my experience with everyone and get started to learn fresh tech stuff.</p>
 
-<p><img src="images/1.jpg" alt="" /></p>
+<p><img class="left" src="http://samzhonghk.github.io/images/1.jpg" width="350" height="350" title="image" alt="images"></p>
 ]]></content>
   </entry>
   
