@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-08T13:42:12+13:00</updated>
+  <updated>2016-01-08T15:26:07+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -18,7 +18,20 @@
     <link href="http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift/"/>
     <updated>2016-01-08T13:28:07+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h2>The Object-oriented of Swift</h2>
+
+<h3>The characteristics of Inheritance</h3>
+
+<p>1.Override the methods of super class.
+2.Override the attributes of super class.
+3.Override the setter of the attributes.
+4.Override the subscriber of the super class.
+5.To prevent overriding with final.</p>
+
+<p>-Single Inheritance:All the base classes can only be inherited from one single base class.</p>
 ]]></content>
   </entry>
   
