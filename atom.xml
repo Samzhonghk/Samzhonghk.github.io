@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-08T23:58:15+13:00</updated>
+  <updated>2016-01-09T00:02:16+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -275,7 +275,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Override the attributes observer of base class</h3>
+<h3>Overriding the attributes observer of base class</h3>
+
+<p>When a new property needs to be added for an inherited property, &lsquo;property overriding&rsquo; concept is introduced in Swift. This notifies the user when the inherited property value is altered. But overriding is not applicable for inherited constant stored properties and inherited read-only computed properties.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -328,6 +330,8 @@
 
 <h3>Final property to prevent Overridding</h3>
 
+<p>When the user need not want others to access super class methods, properties or subscripts swift introduces &lsquo;final&rsquo; property to prevent overriding. Once &lsquo;final&rsquo; property is declared the subscripts won&rsquo;t allow the super class methods, properties and its subscripts to be overridden. There is no provision to have &lsquo;final&rsquo; property in &lsquo;super class&rsquo;. When &lsquo;final&rsquo; property is declared the user is restricted to create further sub classes.</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -372,6 +376,8 @@
 
 
 <p><img class="left" src="http://samzhonghk.github.io/images/2.jpg" width="950" height="950" title="image" alt="The errors after compiling"></p>
+
+<p>since the super class is declared as &lsquo;final&rsquo; and its data types are also declared as &lsquo;final&rsquo; the program won&rsquo;t allow to create subclasses further and it will throw errors.</p>
 ]]></content>
   </entry>
   
