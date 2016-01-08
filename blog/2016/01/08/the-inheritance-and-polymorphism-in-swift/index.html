@@ -210,11 +210,7 @@ $(document).ready(
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="cm">/*Overriding the methods of base class*/</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="n">Bird</span><span class="p">{</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="k">class</span> <span class="n">Bird</span><span class="p">{</span>
 </span><span class='line'>  <span class="c1">//A method called &#39;fly&#39;</span>
 </span><span class='line'>  <span class="kr">override</span> <span class="k">func</span> <span class="n">fly</span><span class="p">(){</span>
 </span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;I can be flying in the sky&quot;</span><span class="p">);</span>
@@ -234,6 +230,73 @@ $(document).ready(
 </span><span class='line'><span class="c1">//Apply the &#39;fly&#39; method of the subclass &#39;Ostrich&#39;,then the sentence &#39;I can be running on the ground&#39; will be printed.</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">os</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Overriding the subscriber of base classes.</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="k">class</span> <span class="n">Base</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">subscript</span><span class="p">(</span><span class="nl">idx</span><span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span><span class="p">{</span>
+</span><span class='line'>    <span class="kr">get</span><span class="p">{</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;The get method of subscript of base class.&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">idx</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Sub</span><span class="p">:</span><span class="n">Base</span><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//Override the subscript of base class</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">subscript</span><span class="p">(</span><span class="nl">idx</span><span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span><span class="p">{</span>
+</span><span class='line'>    <span class="kr">get</span><span class="p">{</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;The get method of subscript after overriding.&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;Access the overriding subscript through super.\(super[idx])&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">idx</span><span class="o">*</span><span class="n">idx</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kr">set</span><span class="p">{</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;The setter method after overriding,the value is \(newValue)&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">var</span> <span class="n">base</span> <span class="o">=</span> <span class="n">Base</span><span class="p">();</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">base</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span><span class="c1">//17 will be output</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Create an object of class Sub</span>
+</span><span class='line'><span class="k">var</span> <span class="n">sub</span> <span class="o">=</span> <span class="n">Sub</span><span class="p">();</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span><span class="c1">//49 will be output</span>
+</span><span class='line'><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
