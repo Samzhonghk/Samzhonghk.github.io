@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-08T23:49:15+13:00</updated>
+  <updated>2016-01-08T23:58:15+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -371,7 +371,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img src="./source/images/2.jpg" alt="" /></p>
+<p><img class="left" src="http://samzhonghk.github.io/images/2.jpg" width="950" height="950" title="image" alt="The errors after compiling"></p>
 ]]></content>
   </entry>
   
