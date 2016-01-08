@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-08T13:38:12+13:00</updated>
+  <updated>2016-01-08T13:39:20+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -27,7 +27,10 @@
     <link href="http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/"/>
     <updated>2016-01-06T18:03:44+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5</id>
-    <content type="html"><![CDATA[<p>This tutorial will be directing to create your own personal blog using Octopress on OS X10.10.5 and host it on github.</p>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>This tutorial will be directing to create your own personal blog using Octopress on OS X10.10.5 and host it on github.</p>
 
 <p>The Octopress information can be obtained from <a href="http://octopress.org/docs/">Octopress offical website</a></p>
 
