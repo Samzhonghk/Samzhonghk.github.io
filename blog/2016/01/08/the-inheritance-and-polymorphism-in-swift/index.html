@@ -299,6 +299,61 @@ $(document).ready(
 </span><span class='line'><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h3>Override the properties of super class</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="k">class</span> <span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nl">speed</span><span class="p">:</span><span class="n">Double</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Ostrich</span><span class="p">:</span><span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//Override the property &#39;speed&#39; of Bird</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">var</span> <span class="nl">speed</span> <span class="p">:</span><span class="n">Double</span><span class="p">{</span>
+</span><span class='line'>    <span class="kr">get</span><span class="p">{</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;Accessing the overridden property&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">speed</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kr">set</span><span class="p">{</span>
+</span><span class='line'>      <span class="nb">super</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">newValue</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Create an object of Ostrich</span>
+</span><span class='line'><span class="k">var</span> <span class="n">os</span> <span class="o">=</span> <span class="n">Ostrich</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Assign a new value to the overridden property</span>
+</span><span class='line'><span class="n">os</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mf">20.0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//output the overridden property</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="s">&quot;The speed of os is \(os.speed)&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
