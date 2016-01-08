@@ -291,11 +291,11 @@ $(document).ready(
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">var</span> <span class="n">base</span> <span class="o">=</span> <span class="n">Base</span><span class="p">();</span>
-</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">base</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span><span class="c1">//17 will be output</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">base</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>   <span class="c1">//17 will be output</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">//Create an object of class Sub</span>
 </span><span class='line'><span class="k">var</span> <span class="n">sub</span> <span class="o">=</span> <span class="n">Sub</span><span class="p">();</span>
-</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span><span class="c1">//49 will be output</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]);</span>   <span class="c1">//49 will be output</span>
 </span><span class='line'><span class="n">sub</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -354,6 +354,104 @@ $(document).ready(
 </span><span class='line'><span class="n">print</span><span class="p">(</span><span class="s">&quot;The speed of os is \(os.speed)&quot;</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h3>Override the attributes observer of base class</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="k">class</span> <span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nl">speed</span><span class="p">:</span><span class="n">Double</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Ostrich</span><span class="p">:</span><span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//Override the property &#39;speed&#39; of Bird,adding the attributes observer</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">var</span> <span class="nl">speed</span><span class="p">:</span><span class="n">Double</span><span class="p">{</span>
+</span><span class='line'>    <span class="n">didset</span><span class="p">{</span>
+</span><span class='line'>      <span class="c1">//The method will be automatically performed after the value of the attribute has been changed.</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;The value of speed will be \(oldValue) after changes&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nb">super</span><span class="p">.</span><span class="n">speed</span> <span class="o">*=</span> <span class="n">speed</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Create the object of Ostrich</span>
+</span><span class='line'><span class="k">var</span> <span class="n">os</span> <span class="o">=</span> <span class="n">Ostrich</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Assign new value to attribute after overriding.</span>
+</span><span class='line'><span class="n">os</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mf">20.0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Output the overridden attribute</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="s">&quot;The speed of the os is \(os.speed)&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Final property to prevent Overridding</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="n">final</span> <span class="k">class</span> <span class="n">Base</span><span class="p">{</span>
+</span><span class='line'>  <span class="n">final</span> <span class="k">var</span> <span class="nl">name</span><span class="p">:</span><span class="n">String</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">final</span> <span class="k">func</span> <span class="nf">say</span><span class="p">(</span><span class="nl">content</span><span class="p">:</span><span class="n">String</span><span class="p">){</span>
+</span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;Base says \(content)&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="n">final</span> <span class="nf">subscript</span><span class="p">(</span><span class="nl">idx</span><span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span><span class="p">{</span>
+</span><span class='line'>    <span class="kr">get</span><span class="p">{</span>
+</span><span class='line'>      <span class="n">print</span><span class="p">(</span><span class="s">&quot;The get method of subscript of base class&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Sub</span><span class="p">:</span><span class="n">Base</span><span class="p">{</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">var</span> <span class="nl">name</span><span class="p">:</span><span class="n">String</span><span class="p">{</span>
+</span><span class='line'>    <span class="kr">get</span><span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s">&quot;the prefixion of subclass&quot;</span> <span class="o">+</span> <span class="nb">super</span><span class="p">.</span><span class="n">name</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="./source/images/2.jpg" alt="" /></p>
 </div>
 
 
