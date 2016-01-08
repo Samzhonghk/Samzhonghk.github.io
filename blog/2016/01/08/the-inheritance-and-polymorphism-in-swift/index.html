@@ -9,9 +9,7 @@
 
 <meta name="author" content="Sam Zhong"> 
 
-<meta name="description" content="The Object-oriented of Swift The characteristics of Inheritance 1.Override the methods of super class.
-2.Override the attributes of super class.
-3. &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="The Object-oriented of Swift The characteristics of Inheritance 1.Override the methods of super class. 2.Override the properties of super class. 3. &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -107,13 +105,137 @@ $(document).ready(
 
 <h3>The characteristics of Inheritance</h3>
 
-<p>1.Override the methods of super class.
-2.Override the attributes of super class.
-3.Override the setter of the attributes.
-4.Override the subscriber of the super class.
-5.To prevent overriding with final.</p>
+<p>1.Override the methods of super class.</p>
 
-<p>-Single Inheritance:All the base classes can only be inherited from one single base class.</p>
+<p>2.Override the properties of super class.</p>
+
+<p>3.Override the setter of the attributes.</p>
+
+<p>4.Override the subscriber of the super class.</p>
+
+<p>5.To prevent overriding with final.</p>
+
+<p>-Single Inheritance:All the subclasses can only be inherited from one single base class.Nevertheless they can have more than one indirect super classes.</p>
+
+<p>-The properties,methods and subscribers can be overridden in subclasses once they have been inherited from super class.</p>
+
+<p>-The properties,methods and subscribers can be obtained once they have been inherited from the super classes.</p>
+
+<p>-The classes in Swift are not inherited from one single base class in common.</p>
+
+<p>-The key word &ldquo;override&rdquo; will be needed to declared when the inherited part needs to be overridden.</p>
+
+<h4>Now let us get started from an simple example</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="k">import</span> <span class="n">Foundation</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="n">Fruit</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">var</span> <span class="n">weight</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">func</span> <span class="nf">info</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;This is a fruit,it is \(weight)g!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Apple</span><span class="p">:</span><span class="n">Fruit</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">var</span> <span class="nl">name</span><span class="p">:</span><span class="n">String</span><span class="o">!</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">func</span> <span class="nf">taste</span><span class="p">()</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(name) is super tasty!&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">var</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Apple</span><span class="p">();</span>
+</span><span class='line'><span class="c1">//Class Apple has no property of weight.</span>
+</span><span class='line'><span class="c1">//The weight property can be performed in class Apple since class Fruit is the base class of class Apple.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="p">.</span><span class="n">weight</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span><span class='line'><span class="n">a</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Big Apple&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="c1">//Both the properties from subclasses itself and inheritance classed can be initialized after the object has been created.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="p">.</span><span class="n">info</span><span class="p">();</span>
+</span><span class='line'><span class="n">a</span><span class="p">.</span><span class="n">taste</span><span class="p">();</span>
+</span><span class='line'><span class="c1">//Both the methods from super classes and subclasses can be performed once the object of the subclass has been created.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Overriding the methods of base class</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="cm">/*Overriding the methods of base class*/</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//A method called &#39;fly&#39;</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">func</span> <span class="n">fly</span><span class="p">(){</span>
+</span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;I can be flying in the sky&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nl">Ostrich</span><span class="p">:</span><span class="n">Bird</span><span class="p">{</span>
+</span><span class='line'>  <span class="c1">//Overriding the &#39;fly&#39; method of class Bird</span>
+</span><span class='line'>  <span class="kr">override</span> <span class="k">func</span> <span class="n">fly</span><span class="p">(){</span>
+</span><span class='line'>    <span class="n">print</span><span class="p">(</span><span class="s">&quot;I can be running on the ground&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Create an object of Ostrich</span>
+</span><span class='line'><span class="k">var</span> <span class="n">os</span> <span class="o">=</span> <span class="n">Ostrich</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//Apply the &#39;fly&#39; method of the subclass &#39;Ostrich&#39;,then the sentence &#39;I can be running on the ground&#39; will be printed.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">os</span><span class="p">.</span><span class="n">fly</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
