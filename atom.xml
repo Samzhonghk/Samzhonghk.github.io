@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-09T00:02:16+13:00</updated>
+  <updated>2016-01-09T00:08:53+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -25,13 +25,13 @@
 
 <h3>The characteristics of Inheritance</h3>
 
-<p>1.Override the methods of super class.</p>
+<p>1.Overriding the methods of super class.</p>
 
-<p>2.Override the properties of super class.</p>
+<p>2.Overriding the properties of super class.</p>
 
-<p>3.Override the setter of the attributes.</p>
+<p>3.Overriding the setter of the attributes.</p>
 
-<p>4.Override the subscriber of the super class.</p>
+<p>4.Overriding the subscriber of the super class.</p>
 
 <p>5.To prevent overriding with final.</p>
 
@@ -377,7 +377,7 @@
 
 <p><img class="left" src="http://samzhonghk.github.io/images/2.jpg" width="950" height="950" title="image" alt="The errors after compiling"></p>
 
-<p>since the super class is declared as &lsquo;final&rsquo; and its data types are also declared as &lsquo;final&rsquo; the program won&rsquo;t allow to create subclasses further and it will throw errors.</p>
+<p>*since the super class is declared as &lsquo;final&rsquo; and its data types are also declared as &lsquo;final&rsquo; the program won&rsquo;t allow to create subclasses further and it will throw errors.</p>
 ]]></content>
   </entry>
   
