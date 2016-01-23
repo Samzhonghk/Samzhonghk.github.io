@@ -1,0 +1,223 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Xcode project templates introduction  | Sam Zhong</title>
+
+<meta name="author" content="Sam Zhong"> 
+
+<meta name="description" content="Today I will be introducing the project templates in IOS development. As we can see from the IOS templates board.There are four Application &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Sam Zhong" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Sam Zhong</a></h1>
+<h4>Passionated with app,ios games,.net website and various of tech.</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:samzhonghk.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Xcode Project Templates Introduction</h2>
+	<div class="entry-content"><!--more-->
+
+
+<p>Today I will be introducing the project templates in IOS development.</p>
+
+<p>As we can see from the IOS templates board.There are four Application templates except for the game template.</p>
+
+<p><img class="left" src="/images/4.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<h3>*Master-Detail Application</h3>
+
+<h3>*Page-Based Application</h3>
+
+<h3>*Single View Application</h3>
+
+<h3>*Tabbed Application</h3>
+
+<h2>Master-Detail Application</h2>
+
+<p>This template provides a starting point for a master-detail application. It provides a user interface configured with a navigation controller to display a list of items and also a split view on iPad.</p>
+
+<p><img class="left" src="/images/5.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>This is the initial template of Master-Detail Application.The information of date will be listed on the list below when the &lsquo;Plus Sign&rsquo; is clicked.</p>
+
+<p><img class="left" src="/images/6.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>Afterward,the detail of the date will be shown when we click on the information bar.</p>
+
+<p><img class="left" src="/images/7.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>The experienced programmers will find that the navigation mode for iPhone and Split mode for iPad have not been used.But Master-Detail Application is the combined mode of those two modes.
+In fact,the Navigation mode can be used when the Master-Detail Application is chosen for iPhone and the Split mode can be used when the Master-Detail Application is taken for iPad.</p>
+
+<p>The applications that are similar with Mail can be built using Master-Detail mode.
+As we can see below,the navigation bar on the left hand side is master and the detail information on the right hand side of each mail is &lsquo;Detail&rsquo;.</p>
+
+<p><img class="left" src="/images/8.png" width="450" height="450" title="image" alt="images"></p>
+
+<p><img class="left" src="/images/9.png" width="450" height="450" title="image" alt="images"></p>
+
+<h2>Tabbed Application</h2>
+
+<p>This template provides a starting point for an application that uses a tab bar. It provides a user interface configured with a tab bar controller, and view controllers for the tab bar items.</p>
+
+<p>The content of Tab bar and the related view controllers can be controlled by the codes.</p>
+
+<p>The applications that are similar with iTunes can be built using Tabbed template.</p>
+
+<p><img class="left" src="/images/12.png" width="450" height="450" title="image" alt="images"></p>
+
+<p><img class="left" src="/images/13.png" width="450" height="450" title="image" alt="images"></p>
+
+<h2>Page-Based Application</h2>
+
+<p>This template provides a starting point for a page-based application that uses a page view controller.</p>
+
+<p><img class="left" src="/images/11.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>The applications that are based on page can be generated using the &lsquo;Page-based Application&rsquo; mode.</p>
+
+<p>As we can see below,the effects can be achieved using Page-Based Application.</p>
+
+<p><img class="left" src="/images/10.jpg" width="450" height="450" title="image" alt="images"></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-21T14:00:09+08:00" pubdate data-updated="true"></time></div>
+	
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2016
+
+    Sam Zhong
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

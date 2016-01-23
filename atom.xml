@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-09T00:08:53+13:00</updated>
+  <updated>2016-01-23T17:31:51+08:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -14,9 +14,81 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Xcode project templates introduction]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/01/21/master-dedetail-application/"/>
+    <updated>2016-01-21T14:00:09+08:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/01/21/master-dedetail-application</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>Today I will be introducing the project templates in IOS development.</p>
+
+<p>As we can see from the IOS templates board.There are four Application templates except for the game template.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/4.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<h3>*Master-Detail Application</h3>
+
+<h3>*Page-Based Application</h3>
+
+<h3>*Single View Application</h3>
+
+<h3>*Tabbed Application</h3>
+
+<h2>Master-Detail Application</h2>
+
+<p>This template provides a starting point for a master-detail application. It provides a user interface configured with a navigation controller to display a list of items and also a split view on iPad.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/5.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>This is the initial template of Master-Detail Application.The information of date will be listed on the list below when the &lsquo;Plus Sign&rsquo; is clicked.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/6.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>Afterward,the detail of the date will be shown when we click on the information bar.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/7.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>The experienced programmers will find that the navigation mode for iPhone and Split mode for iPad have not been used.But Master-Detail Application is the combined mode of those two modes.
+In fact,the Navigation mode can be used when the Master-Detail Application is chosen for iPhone and the Split mode can be used when the Master-Detail Application is taken for iPad.</p>
+
+<p>The applications that are similar with Mail can be built using Master-Detail mode.
+As we can see below,the navigation bar on the left hand side is master and the detail information on the right hand side of each mail is &lsquo;Detail&rsquo;.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/8.png" width="450" height="450" title="image" alt="images"></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/9.png" width="450" height="450" title="image" alt="images"></p>
+
+<h2>Tabbed Application</h2>
+
+<p>This template provides a starting point for an application that uses a tab bar. It provides a user interface configured with a tab bar controller, and view controllers for the tab bar items.</p>
+
+<p>The content of Tab bar and the related view controllers can be controlled by the codes.</p>
+
+<p>The applications that are similar with iTunes can be built using Tabbed template.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/12.png" width="450" height="450" title="image" alt="images"></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/13.png" width="450" height="450" title="image" alt="images"></p>
+
+<h2>Page-Based Application</h2>
+
+<p>This template provides a starting point for a page-based application that uses a page view controller.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/11.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>The applications that are based on page can be generated using the &lsquo;Page-based Application&rsquo; mode.</p>
+
+<p>As we can see below,the effects can be achieved using Page-Based Application.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/10.jpg" width="450" height="450" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[The Inheritance and Polymorphism in Swift]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift/"/>
-    <updated>2016-01-08T13:28:07+13:00</updated>
+    <updated>2016-01-08T08:28:07+08:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -384,7 +456,7 @@
   <entry>
     <title type="html"><![CDATA[Set Up Octopress on OS X10.10.5]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/"/>
-    <updated>2016-01-06T18:03:44+13:00</updated>
+    <updated>2016-01-06T13:03:44+08:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -591,7 +663,7 @@ The default file extension for new posts is markdown but you can configure that 
   <entry>
     <title type="html"><![CDATA[My first post]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/05/my-first-post/"/>
-    <updated>2016-01-05T19:01:52+13:00</updated>
+    <updated>2016-01-05T14:01:52+08:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/05/my-first-post</id>
     <content type="html"><![CDATA[<p>Happy new year everyone!Welcome to new 2016.</p>
 
