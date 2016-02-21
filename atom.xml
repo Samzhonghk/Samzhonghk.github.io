@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-01-23T17:31:51+08:00</updated>
+  <updated>2016-02-22T01:08:58+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -14,10 +14,108 @@
 
   
   <entry>
+    <title type="html"><![CDATA[The disappeared pin menu in Xcode7]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/02/21/the-disappeared-pin-menu-in-xcode7/"/>
+    <updated>2016-02-21T17:26:01+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/02/21/the-disappeared-pin-menu-in-xcode7</id>
+    <content type="html"><![CDATA[<p>We may all probably know the size of layout in Xcode can be changed by pin in the former versions.There are four choices can be used to reset the distances around the control,they are Top Space,Leading Space,Trailing Space and Bottom Space.</p>
+
+<p>There are two methods can be selected to employ pin in Xcode6:
+-Apply through the menu:Editor -> pin</p>
+
+<p>-Apply the pin button which is located at the bottom of designer.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/pinOld.png" width="450" height="450" title="image" alt="images"></p>
+
+<p>There are some differences between these two methods.
+-The top space distance to superview can be modified directly through the pin button on the menu(Editor->pin)</p>
+
+<p>-The distance to the last view will be selected according to the distance of the presented view if using that pin button.(not necessarily superview)</p>
+
+<h4>Unfortunely&hellip;the pin function can not be found anymore if the Xcode has been updated to Xcode7.</h4>
+
+<h5>After long time searching,the answer has been found finally.</h5>
+
+<p>The answer is right here:<a href="" title="http://stackoverflow.com/questions/28766210/autolayout-add-constraint-to-superview-and-not-top-layout-guide">How to use pin function after Xcode version5</a></p>
+
+<p>There is an arrow towards the bottom on the right side,a couple choices will be appeared if the arrow is clicked.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/pinNew.png" width="450" height="450" title="image" alt="images"></p>
+
+<p>As we can see,the &ldquo;Top Layout Guide&rdquo; has been automatically clicked.The Superview can be controlled if the View button has been chosen.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Browser Development Project]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/01/25/ios-browser-development-project/"/>
+    <updated>2016-01-25T03:03:45+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/01/25/ios-browser-development-project</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>This is a step by step tutorial of building a simple browser using single view application of Swift</p>
+
+<h3>1.To create a new project by Swift using single view application in Xcode.</h3>
+
+<h3>2.Open Main.storyboard file in project files and drag three view controllers to drawing area.</h3>
+
+<p>They are:</p>
+
+<h4>TextField</h4>
+
+<h4>Button</h4>
+
+<h4>Web View</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/15.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<p>3.Drag those three view controllers to ViewController.swift file one by one pressing control button and the codes below will be generated.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="p">@</span><span class="kt">IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nl">urlInput</span><span class="p">:</span><span class="bp">UITextField</span><span class="o">!</span>
+</span><span class='line'><span class="p">@</span><span class="kt">IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nl">urlButton</span><span class="p">:</span><span class="bp">UIButton</span><span class="o">!</span>
+</span><span class='line'><span class="p">@</span><span class="kt">IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nl">webView</span><span class="p">:</span><span class="bp">UIWebView</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4.Add an action event to the button</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="p">@</span><span class="kt">IBAction</span> <span class="k">func</span> <span class="n">buttonClick</span><span class="p">(</span><span class="nl">sender</span><span class="p">:</span><span class="n">AnyObject</span><span class="p">){</span>
+</span><span class='line'>  <span class="c1">//Access via url</span>
+</span><span class='line'>  <span class="nb">self</span><span class="p">.</span><span class="n">webview</span><span class="p">.</span><span class="n">loadRequest</span><span class="p">(</span><span class="bp">NSURLRequest</span><span class="p">(</span><span class="nl">URL</span><span class="p">:</span><span class="bp">NSURL</span><span class="p">(</span><span class="nl">string</span><span class="p">:</span><span class="n">urlInput</span><span class="p">.</span><span class="n">text</span><span class="o">!</span><span class="p">)</span><span class="o">!</span><span class="p">));</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>5.Compile the codes with pressing command+R,the errors will be reported as:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='Swift'><span class='line'><span class="n">wift_browser</span><span class="p">[</span><span class="mi">656</span><span class="o">:</span><span class="mi">22577</span><span class="p">]</span> <span class="n">App</span> <span class="n">Transport</span> <span class="n">Security</span> <span class="n">has</span> <span class="n">blocked</span> <span class="n">a</span> <span class="n">cleartext</span> <span class="n">HTTP</span> <span class="p">(</span><span class="nl">http</span><span class="p">:</span><span class="c1">//) resource load since it is insecure. Temporary exceptions can be configured via your app&#39;s Info.plist file.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The HTTP resource request via HTTP(<a href="http://">http://</a>) will be recognized as insecure and the related configuration can be reconfigured via Info.plist file.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/16.png" width="600" height="600" title="image" alt="images"></p>
+
+<p>6.Finally,the project of the simple browser can be successfully compiled as below.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/17.jpg" width="450" height="450" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Xcode project templates introduction]]></title>
-    <link href="http://samzhonghk.github.io/blog/2016/01/21/master-dedetail-application/"/>
-    <updated>2016-01-21T14:00:09+08:00</updated>
-    <id>http://samzhonghk.github.io/blog/2016/01/21/master-dedetail-application</id>
+    <link href="http://samzhonghk.github.io/blog/2016/01/21/Xcode-project-templates/"/>
+    <updated>2016-01-21T19:00:09+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/01/21/Xcode-project-templates</id>
     <content type="html"><![CDATA[<!--more-->
 
 
@@ -67,9 +165,9 @@ As we can see below,the navigation bar on the left hand side is master and the d
 
 <p>The applications that are similar with iTunes can be built using Tabbed template.</p>
 
-<p><img class="left" src="http://samzhonghk.github.io/images/12.png" width="450" height="450" title="image" alt="images"></p>
+<p><img class="left" src="http://samzhonghk.github.io/images/12.jpg" width="450" height="450" title="image" alt="images"></p>
 
-<p><img class="left" src="http://samzhonghk.github.io/images/13.png" width="450" height="450" title="image" alt="images"></p>
+<p><img class="left" src="http://samzhonghk.github.io/images/13.jpg" width="450" height="450" title="image" alt="images"></p>
 
 <h2>Page-Based Application</h2>
 
@@ -88,7 +186,7 @@ As we can see below,the navigation bar on the left hand side is master and the d
   <entry>
     <title type="html"><![CDATA[The Inheritance and Polymorphism in Swift]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift/"/>
-    <updated>2016-01-08T08:28:07+08:00</updated>
+    <updated>2016-01-08T13:28:07+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -456,7 +554,7 @@ As we can see below,the navigation bar on the left hand side is master and the d
   <entry>
     <title type="html"><![CDATA[Set Up Octopress on OS X10.10.5]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/"/>
-    <updated>2016-01-06T13:03:44+08:00</updated>
+    <updated>2016-01-06T18:03:44+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -663,7 +761,7 @@ The default file extension for new posts is markdown but you can configure that 
   <entry>
     <title type="html"><![CDATA[My first post]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/01/05/my-first-post/"/>
-    <updated>2016-01-05T14:01:52+08:00</updated>
+    <updated>2016-01-05T19:01:52+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/01/05/my-first-post</id>
     <content type="html"><![CDATA[<p>Happy new year everyone!Welcome to new 2016.</p>
 

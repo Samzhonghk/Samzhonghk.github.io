@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>My first post  | Sam Zhong</title>
+	<title>The disappeared pin menu in Xcode7  | Sam Zhong</title>
 
 <meta name="author" content="Sam Zhong"> 
 
-<meta name="description" content="Happy new year everyone!Welcome to new 2016. Recently I found that github is an awesome platform for sharing codes.Free space and domain can be &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="We may all probably know the size of layout in Xcode can be changed by pin in the former versions.There are four choices can be used to reset the &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,14 +97,32 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">My First Post</h2>
-	<div class="entry-content"><p>Happy new year everyone!Welcome to new 2016.</p>
+	<h2 class="title">The Disappeared Pin Menu in Xcode7</h2>
+	<div class="entry-content"><p>We may all probably know the size of layout in Xcode can be changed by pin in the former versions.There are four choices can be used to reset the distances around the control,they are Top Space,Leading Space,Trailing Space and Bottom Space.</p>
 
-<p>Recently I found that github is an awesome platform for sharing codes.Free space and domain can be provided for blogging.</p>
+<p>There are two methods can be selected to employ pin in Xcode6:
+-Apply through the menu:Editor -> pin</p>
 
-<p>Hopefully this is a good start to share my experience with everyone and get started to learn fresh tech stuff.</p>
+<p>-Apply the pin button which is located at the bottom of designer.</p>
 
-<p><img class="left" src="/images/1.jpg" width="350" height="350" title="image" alt="images"></p>
+<p><img class="left" src="/images/pinOld.png" width="450" height="450" title="image" alt="images"></p>
+
+<p>There are some differences between these two methods.
+-The top space distance to superview can be modified directly through the pin button on the menu(Editor->pin)</p>
+
+<p>-The distance to the last view will be selected according to the distance of the presented view if using that pin button.(not necessarily superview)</p>
+
+<h4>Unfortunely&hellip;the pin function can not be found anymore if the Xcode has been updated to Xcode7.</h4>
+
+<h5>After long time searching,the answer has been found finally.</h5>
+
+<p>The answer is right here:<a href="" title="http://stackoverflow.com/questions/28766210/autolayout-add-constraint-to-superview-and-not-top-layout-guide">How to use pin function after Xcode version5</a></p>
+
+<p>There is an arrow towards the bottom on the right side,a couple choices will be appeared if the arrow is clicked.</p>
+
+<p><img class="left" src="/images/pinNew.png" width="450" height="450" title="image" alt="images"></p>
+
+<p>As we can see,the &ldquo;Top Layout Guide&rdquo; has been automatically clicked.The Superview can be controlled if the View button has been chosen.</p>
 </div>
 
 
@@ -121,7 +139,7 @@ $(document).ready(
   
 
 
-<time datetime="2016-01-05T19:01:52+13:00" pubdate data-updated="true"></time></div>
+<time datetime="2016-02-21T17:26:01+13:00" pubdate data-updated="true"></time></div>
 	
 
 
