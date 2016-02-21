@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-02-22T01:08:58+13:00</updated>
+  <updated>2016-02-22T01:10:32+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -18,7 +18,10 @@
     <link href="http://samzhonghk.github.io/blog/2016/02/21/the-disappeared-pin-menu-in-xcode7/"/>
     <updated>2016-02-21T17:26:01+13:00</updated>
     <id>http://samzhonghk.github.io/blog/2016/02/21/the-disappeared-pin-menu-in-xcode7</id>
-    <content type="html"><![CDATA[<p>We may all probably know the size of layout in Xcode can be changed by pin in the former versions.There are four choices can be used to reset the distances around the control,they are Top Space,Leading Space,Trailing Space and Bottom Space.</p>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>We may all probably know the size of layout in Xcode can be changed by pin in the former versions.There are four choices can be used to reset the distances around the control,they are Top Space,Leading Space,Trailing Space and Bottom Space.</p>
 
 <p>There are two methods can be selected to employ pin in Xcode6:
 -Apply through the menu:Editor -> pin</p>
