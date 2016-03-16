@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-02-22T01:11:18+13:00</updated>
+  <updated>2016-03-17T00:37:37+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Outlet and Action]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/03/16/outlet-and-action/"/>
+    <updated>2016-03-16T20:04:47+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/03/16/outlet-and-action</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</p>
+
+<h3>Outlet</h3>
+
+<p><em>ViewController talks to View by using Outlet.</em> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
+
+<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
+you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
+
+<p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
+2.The outlet gives the obj-c code access to anobject in IB.
+3.Outlet is used when you want to change some property of control such as text color or text size of a label.</p>
+
+<h3>Action</h3>
+
+<p><em>View pass on messages about view to ViewController by using Action</em>   (Or in technical terms ViewController set itself as <em>target</em> for any <em>Action</em> in View).Action is a <em>Method</em> in ViewController(unlike Outlet which is <em>@property</em> in ViewController).Whenever something(any <em>Event</em>) happens to an object(like UIButton is tapped) then Action pass on message to ViewController.Action(or action method) can do something after receiving the message.</p>
+
+<p>Note: <em>Action can be set only by UIControl&rsquo;s child object.Which means you can not set Action for UILabel,UIView etc.</em></p>
+
+<p>1.The action provides a method to be called by a control(usually also a child view on the xib)when activated by the user.
+2.The action gives the xib control access to the obj-c.
+3.Action is used when you want to detect a trigger such as the button is pressed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The disappeared pin menu in Xcode7]]></title>

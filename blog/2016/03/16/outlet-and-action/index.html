@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Blog Archives  | Sam Zhong</title>
+	<title>Outlet and Action  | Sam Zhong</title>
 
 <meta name="author" content="Sam Zhong"> 
 
-<meta name="description" content="2016 Outlet and Action Mar 16 The disappeared pin menu in Xcode7 Feb 21 iOS Browser Development Project Jan 25 Xcode project templates introduction &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -96,108 +96,69 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Outlet and Action</h2>
+	<div class="entry-content"><!--more-->
+
+
+<p>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</p>
+
+<h3>Outlet</h3>
+
+<p><em>ViewController talks to View by using Outlet.</em> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
+
+<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
+you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
+
+<p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
+2.The outlet gives the obj-c code access to anobject in IB.
+3.Outlet is used when you want to change some property of control such as text color or text size of a label.</p>
+
+<h3>Action</h3>
+
+<p><em>View pass on messages about view to ViewController by using Action</em>   (Or in technical terms ViewController set itself as <em>target</em> for any <em>Action</em> in View).Action is a <em>Method</em> in ViewController(unlike Outlet which is <em>@property</em> in ViewController).Whenever something(any <em>Event</em>) happens to an object(like UIButton is tapped) then Action pass on message to ViewController.Action(or action method) can do something after receiving the message.</p>
+
+<p>Note: <em>Action can be set only by UIControl&rsquo;s child object.Which means you can not set Action for UILabel,UIView etc.</em></p>
+
+<p>1.The action provides a method to be called by a control(usually also a child view on the xib)when activated by the user.
+2.The action gives the xib control access to the obj-c.
+3.Action is used when you want to detect a trigger such as the button is pressed.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-16T20:04:47+13:00" pubdate data-updated="true"></time></div>
 	
 
 
 	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-	<section class="archives"><h1 class="year">2016</h1>
-
-<article>
-	<h2 class="title"><a href="/blog/2016/03/16/outlet-and-action/">Outlet and Action</a></h2>
-	<div class="meta">
-		<div class="date">Mar 16</div>
-		
-
-
-	    
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
 	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/02/21/the-disappeared-pin-menu-in-xcode7/">The disappeared pin menu in Xcode7</a></h2>
-	<div class="meta">
-		<div class="date">Feb 21</div>
-		
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
 
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/01/25/ios-browser-development-project/">iOS Browser Development Project</a></h2>
-	<div class="meta">
-		<div class="date">Jan 25</div>
-		
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/01/21/Xcode-project-templates/">Xcode project templates introduction</a></h2>
-	<div class="meta">
-		<div class="date">Jan 21</div>
-		
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/01/08/the-inheritance-and-polymorphism-in-swift/">The Inheritance and Polymorphism in Swift</a></h2>
-	<div class="meta">
-		<div class="date">Jan  8</div>
-		
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/01/06/set-up-octopress-on-osx10-dot-10-dot-5/">Set Up Octopress on OS X10.10.5</a></h2>
-	<div class="meta">
-		<div class="date">Jan  6</div>
-		
-
-
-	    
-	</div>
-</article>
-
-	
-
-
-<article>
-	<h2 class="title"><a href="/blog/2016/01/05/my-first-post/">My first post</a></h2>
-	<div class="meta">
-		<div class="date">Jan  5</div>
-		
-
-
-	    
-	</div>
-</article>
 </div>
 	<footer id="footer" class="inner">Copyright &copy; 2016
 
