@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-03-17T00:37:37+13:00</updated>
+  <updated>2016-03-17T00:39:41+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -25,10 +25,9 @@
 
 <h3>Outlet</h3>
 
-<p><em>ViewController talks to View by using Outlet.</em> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
-
-<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
-you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
+<p><em>ViewController talks to View by using Outlet.</em> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:
+-you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
+-you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p>
 
 <p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
 2.The outlet gives the obj-c code access to anobject in IB.
