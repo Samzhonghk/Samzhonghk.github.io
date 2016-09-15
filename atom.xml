@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-09-15T13:30:00+12:00</updated>
+  <updated>2016-09-15T16:54:00+12:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fourth Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/15/fourth-day-of-music-store-project/"/>
+    <updated>2016-09-15T13:44:33+12:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/15/fourth-day-of-music-store-project</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>The database configuration has been set up. At this moment I will add some seed data in the database. Since I have added a seed data class in the model folder, therefore I need to tell Entity Framework about the seed data class.</h3>
+
+<h4>Config the Application_Start method</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/GlobalFileSetup.jpg" width="650" height="650" title="'image'" ></p>
+
+<h4>At this point, I have completed the work necessary to configure Entity Framework for my store project.</h4>
+
+<h5>Now I will try to update the store index action to retrieve all Genres in our database.</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Index</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">using</span><span class="p">(</span><span class="kt">var</span> <span class="n">db</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SamMusicStore</span><span class="p">()){</span>
+</span><span class='line'>      <span class="kt">var</span> <span class="n">genres</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Genres</span><span class="p">.</span><span class="n">ToList</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="n">genres</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>The list of Genres will be displayed when I run and visit the the “/Store” URL</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/genresListView.jpg" width="650" height="650" title="'image'" ></p>
+
+<blockquote><p>I will take advantage of an Entity Framework feature that allows for indicating other related entities I want loaded as well when the Genre object is retrieved. This feature is called Query Result Shaping, and enables reducing the number of times we need to access the database to retrieve all of the information that will be required. I want to pre-fetch the Albums for Genre we retrieve, so I will update our query to include from
+Genres.Include(“Albums”) to indicate that I want related albums as well. This is more efficient, since it will retrieve both our Genre and Album data in a single database request.</p></blockquote>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/BrowseActionMethod.jpg" width="650" height="650" title="image" alt="Browse Action Method"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Third Day of Music Store Project(SamMusicStore)]]></title>
