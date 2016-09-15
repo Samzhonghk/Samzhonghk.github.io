@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Outlet and Action  | Sam Zhong</title>
+	<title>First Day of Music Store Project  | Sam Zhong</title>
 
 <meta name="author" content="Sam Zhong"> 
 
-<meta name="description" content="Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Today I am going to create a music store project. Let&rsquo;s call it SamMusicStore. We will be applying ASP.NET MVC and Visual Studio 2013 to &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,34 +97,55 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Outlet and Action</h2>
+	<h2 class="title">First Day of Music Store Project</h2>
 	<div class="entry-content"><!--more-->
 
 
-<h4>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</h4>
+<h3>Today I am going to create a music store project. Let&rsquo;s call it SamMusicStore.</h3>
 
-<h2>Outlet</h2>
+<p>We will be applying ASP.NET MVC and Visual Studio 2013 to develop the music store.</p>
 
-<h4><em>ViewController talks to View by using Outlet.</em></h4>
+<p>1.We will create a new project in Visual Studio
+<img class="left" src="/images/SamMvc/NewProject.jpg" width="350" height="350" title="image" alt="images">
+<img class="left" src="/images/SamMvc/buildProjectWnd.jpg" width="350" height="350" title="image" alt="images">
+2.Select the ASP.NET MVC Web Application and name it as SamMvcMusic</p>
 
-<p> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
+<p><img class="left" src="/images/SamMvc/ChooseTemplate.jpg" width="350" height="350" title="image" alt="images">
+3.Select a template which is MVC.</p>
 
-<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
-you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
+<p><img class="left" src="/images/SamMvc/projectContent.jpg" width="350" height="350" title="image" alt="images">
+This is the project content of the new created SamMusicStore MVC project.</p>
 
-<p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
-2.The outlet gives the obj-c code access to anobject in IB.
-3.Outlet is used when you want to change some property of control such as text color or text size of a label.</p>
+<p><img class="left" src="/images/SamMvc/addHomeController.jpg" width="350" height="350" title="image" alt="images">
+4.Now I will add a controller and name it Home</p>
 
-<h2>Action</h2>
+<p><img class="left" src="/images/SamMvc/HomeController.jpg" width="350" height="350" title="image" alt="images">
+This is what HomeController looks like.</p>
 
-<p><em>View pass on messages about view to ViewController by using Action</em>   (Or in technical terms ViewController set itself as <em>target</em> for any <em>Action</em> in View).Action is a <em>Method</em> in ViewController(unlike Outlet which is <em>@property</em> in ViewController).Whenever something(any <em>Event</em>) happens to an object(like UIButton is tapped) then Action pass on message to ViewController.Action(or action method) can do something after receiving the message.</p>
+<p>5.Now let us add a StoreController to implement the browsing functionality of    SamMusicStoremusic
+<img class="left" src="/images/SamMvc/AddStoreController.jpg" width="350" height="350" title="image" alt="images"></p>
 
-<p>Note: <em>Action can be set only by UIControl&rsquo;s child object.Which means you can not set Action for UILabel,UIView etc.</em></p>
+<p>Store controller will support three scenarios:
+-A listing page of the music genres in our music store
+-A browse page that lists all of the music albums in a particular genre
+-A details page that shows information about a specific music album</p>
 
-<p>1.The action provides a method to be called by a control(usually also a child view on the xib)when activated by the user.
-2.The action gives the xib control access to the obj-c.
-3.Action is used when you want to detect a trigger such as the button is pressed.</p>
+<p>6.I am adding an index view in the new view. The &ldquo;Add View&rdquo; dialog allows us to generate view template files.
+<img class="left" src="/images/SamMvc/addHomeIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>This is the content of the index view
+<img class="left" src="/images/SamMvc/HomeIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<h2>Using a Layout for common site elements</h2>
+
+<p>Most websites have content which is shared between many pages: navigation, footers, logo images, stylesheet references, etc. The Razor view engine makes this easy to manage using a page called Layout.cshtml which has automatically been created for us inside the /Views/Shared folder.</p>
+
+<p>This is the layout file
+<img class="left" src="/images/SamMvc/addNewContentToLayout.jpg" width="350" height="350" title="image" alt="images">
+The content from our individual views will be displayed by the @RenderBody() command, and any common content that we want to appear outside of that can be added to the Layout.cshtml markup.</p>
+
+<p>7.Now I will add some required references to the layout.cshtml
+<img class="left" src="/images/SamMvc/addReferenceToLayout.jpg" width="350" height="350" title="image" alt="images"></p>
 </div>
 
 
@@ -141,7 +162,7 @@ you can get something from an object(like current value of UIStepper,current fon
   
 
 
-<time datetime="2016-03-16T20:04:47+13:00" pubdate data-updated="true"></time></div>
+<time datetime="2016-09-06T15:32:16+12:00" pubdate data-updated="true"></time></div>
 	
 
 

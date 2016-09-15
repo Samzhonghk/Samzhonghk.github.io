@@ -5,11 +5,11 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Outlet and Action  | Sam Zhong</title>
+	<title>Third Day of Music Store Project(SamMusicStore)  | Sam Zhong</title>
 
 <meta name="author" content="Sam Zhong"> 
 
-<meta name="description" content="Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="So far, in the past two days I have been passing &ldquo;dummy data&rdquo; from controllers to views. Now I am going to hook up a real database. &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,34 +97,39 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner"><article class="post">
-	<h2 class="title">Outlet and Action</h2>
+	<h2 class="title">Third Day of Music Store Project(SamMusicStore)</h2>
 	<div class="entry-content"><!--more-->
 
 
-<h4>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</h4>
+<h3>So far, in the past two days I have been passing &ldquo;dummy data&rdquo; from controllers to views. Now I am going to hook up a real database.</h3>
 
-<h2>Outlet</h2>
+<h4>Database access with Entity Framework Code-First</h4>
 
-<h4><em>ViewController talks to View by using Outlet.</em></h4>
+<blockquote><p>Apply the Entity Framework(EF) support that is included in ASP.NET MVC4 project to query and update the database. EF is a flexible object relational mapping(ORM) data API that enables developers to query and update data stored in a database in an object-oriented way.</p>
 
-<p> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
+<p>EF supports a development paradigm called Code-First. Code-First allows you to create model object by writing simple classes(also known as POCO from &ldquo;plain-old&rdquo; CLR objects).</p></blockquote>
 
-<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
-you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
+<h4>Adding the Artists model class and associate it with Albums</h4>
 
-<p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
-2.The outlet gives the obj-c code access to anobject in IB.
-3.Outlet is used when you want to change some property of control such as text color or text size of a label.</p>
+<p><img class="left" src="/images/SamMvc/ArtistModel.jpg" width="650" height="650" title="image" alt="images"></p>
 
-<h2>Action</h2>
+<h4>Update the Album class</h4>
 
-<p><em>View pass on messages about view to ViewController by using Action</em>   (Or in technical terms ViewController set itself as <em>target</em> for any <em>Action</em> in View).Action is a <em>Method</em> in ViewController(unlike Outlet which is <em>@property</em> in ViewController).Whenever something(any <em>Event</em>) happens to an object(like UIButton is tapped) then Action pass on message to ViewController.Action(or action method) can do something after receiving the message.</p>
+<p><img class="left" src="/images/SamMvc/addAlbumProperties.jpg" width="650" height="650" title="image" alt="images"></p>
 
-<p>Note: <em>Action can be set only by UIControl&rsquo;s child object.Which means you can not set Action for UILabel,UIView etc.</em></p>
+<h4>Update Genre class</h4>
 
-<p>1.The action provides a method to be called by a control(usually also a child view on the xib)when activated by the user.
-2.The action gives the xib control access to the obj-c.
-3.Action is used when you want to detect a trigger such as the button is pressed.</p>
+<p><img class="left" src="/images/SamMvc/GerneClassProperties.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Creating a connection string in the web.config file</h4>
+
+<p><img class="left" src="/images/SamMvc/connectStringSetup.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Adding a context class</h4>
+
+<p><img class="left" src="/images/SamMvc/CreateEntity.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<blockquote><p>This class will represent the EF database context, and will handle the create, read, update, and delete operation.</p></blockquote>
 </div>
 
 
@@ -141,7 +146,7 @@ you can get something from an object(like current value of UIStepper,current fon
   
 
 
-<time datetime="2016-03-16T20:04:47+13:00" pubdate data-updated="true"></time></div>
+<time datetime="2016-09-08T15:10:43+12:00" pubdate data-updated="true"></time></div>
 	
 
 

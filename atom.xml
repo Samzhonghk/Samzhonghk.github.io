@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-03-17T00:39:41+13:00</updated>
+  <updated>2016-09-15T13:11:19+12:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -14,6 +14,175 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Third Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/08/third-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-08T15:10:43+12:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/08/third-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>So far, in the past two days I have been passing &ldquo;dummy data&rdquo; from controllers to views. Now I am going to hook up a real database.</h3>
+
+<h4>Database access with Entity Framework Code-First</h4>
+
+<blockquote><p>Apply the Entity Framework(EF) support that is included in ASP.NET MVC4 project to query and update the database. EF is a flexible object relational mapping(ORM) data API that enables developers to query and update data stored in a database in an object-oriented way.</p>
+
+<p>EF supports a development paradigm called Code-First. Code-First allows you to create model object by writing simple classes(also known as POCO from &ldquo;plain-old&rdquo; CLR objects).</p></blockquote>
+
+<h4>Adding the Artists model class and associate it with Albums</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/ArtistModel.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Update the Album class</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/addAlbumProperties.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Update Genre class</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/GerneClassProperties.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Creating a connection string in the web.config file</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/connectStringSetup.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Adding a context class</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CreateEntity.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<blockquote><p>This class will represent the EF database context, and will handle the create, read, update, and delete operation.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Second Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/07/second-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-07T11:40:08+12:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/07/second-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Using model to pass information to view</h3>
+
+<p>Today I am going to make a dynamic web site, I will instead pass informaiton from controller actions to view templates.</p>
+
+<h4>In the Model-View-Controller pattern, the term Model refers to object which represent the data in the application. Often, model objects correspond to tables in your database, but they do not have to.</h4>
+
+<p>1.Now I will create a class called &lsquo;Genre&rsquo;.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addGenreClass.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>This is the details action
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/DetailsAction.jpg" width="350" height="350" title="image" alt="images">
+2.Modify the logic to return an Album object to the view(Dummy data here)</p>
+
+<p>3.Add a related detail view by right click on the details action name and take the Album as the model class.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addDetailsView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>4.Make an update for the Store Browse action method. The method returns an ActionResult, and modify the method logic so it creates a new Genre object and returns it to the view.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/editBrowerAction.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>5.Add a related view to method and take Genre as the model.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addBrowerView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>6.Now I will update the Store Index action method and view to display a list of all the Genres in our store.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/editIndexAction.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>7.Add a view to the Index method and select Genre as the model class.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>8.Then I will change the @model declaration to indicate that the view will be expecting several Genre objects rather than just one.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="n">@model</span> <span class="n">IEnumberable</span><span class="p">&lt;</span><span class="n">SamMvcMusic</span><span class="p">.</span><span class="n">Model</span><span class="p">.</span><span class="n">Genre</span><span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>9.Loop through the Genre objects in the model as shown below
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/editIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<h4>The count and list of Gernes is displayed when the application is ran.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/IndexViewDisplay.jpg" width="450" height="450" title="image" alt="images"></p>
+
+<h3>Adding links between pages</h3>
+
+<p>Html.ActionLink() has several different overloads to allow specifying as much informaiton as the need for links. In the simplest case, just to supply the link text and the action method to go to when the hyperlink is clicked on the client.</p>
+
+<blockquote><p>Our links to the Browse page will need to pass a parameter, though, so we’ll use another overload of the</p>
+
+<p>Html.ActionLink method that takes three parameters:</p>
+
+<p>1.Link text, which will display the Genre name</p>
+
+<p>2.Controller action name (Browse)</p>
+
+<p>3.Route parameter values, specifying both the name (Genre) and the value (Genre name)</p></blockquote>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/editIndexView.jpg" width="650" height="650" title="image" alt="images"></p>
+
+<h4>Now when we run our project again and access the /Store/ URL we will see a list of genres. Each genre is a hyperlink – when clicked it will take us to our /Store/Browse?genre=[genre] URL.</h4>
+
+<p>The HTML for the genre list looks like this:
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/indexLinkExample.jpg" width="650" height="650" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Day of Music Store Project]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/06/first-day-of-music-store-project/"/>
+    <updated>2016-09-06T15:32:16+12:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/06/first-day-of-music-store-project</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Today I am going to create a music store project. Let&rsquo;s call it SamMusicStore.</h3>
+
+<p>We will be applying ASP.NET MVC and Visual Studio 2013 to develop the music store.</p>
+
+<p>1.We will create a new project in Visual Studio
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/NewProject.jpg" width="350" height="350" title="image" alt="images">
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/buildProjectWnd.jpg" width="350" height="350" title="image" alt="images">
+2.Select the ASP.NET MVC Web Application and name it as SamMvcMusic</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/ChooseTemplate.jpg" width="350" height="350" title="image" alt="images">
+3.Select a template which is MVC.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/projectContent.jpg" width="350" height="350" title="image" alt="images">
+This is the project content of the new created SamMusicStore MVC project.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/addHomeController.jpg" width="350" height="350" title="image" alt="images">
+4.Now I will add a controller and name it Home</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/HomeController.jpg" width="350" height="350" title="image" alt="images">
+This is what HomeController looks like.</p>
+
+<p>5.Now let us add a StoreController to implement the browsing functionality of    SamMusicStoremusic
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/AddStoreController.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>Store controller will support three scenarios:
+-A listing page of the music genres in our music store
+-A browse page that lists all of the music albums in a particular genre
+-A details page that shows information about a specific music album</p>
+
+<p>6.I am adding an index view in the new view. The &ldquo;Add View&rdquo; dialog allows us to generate view template files.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addHomeIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<p>This is the content of the index view
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/HomeIndexView.jpg" width="350" height="350" title="image" alt="images"></p>
+
+<h2>Using a Layout for common site elements</h2>
+
+<p>Most websites have content which is shared between many pages: navigation, footers, logo images, stylesheet references, etc. The Razor view engine makes this easy to manage using a page called Layout.cshtml which has automatically been created for us inside the /Views/Shared folder.</p>
+
+<p>This is the layout file
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addNewContentToLayout.jpg" width="350" height="350" title="image" alt="images">
+The content from our individual views will be displayed by the @RenderBody() command, and any common content that we want to appear outside of that can be added to the Layout.cshtml markup.</p>
+
+<p>7.Now I will add some required references to the layout.cshtml
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addReferenceToLayout.jpg" width="350" height="350" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Outlet and Action]]></title>
     <link href="http://samzhonghk.github.io/blog/2016/03/16/outlet-and-action/"/>
     <updated>2016-03-16T20:04:47+13:00</updated>
@@ -21,19 +190,22 @@
     <content type="html"><![CDATA[<!--more-->
 
 
-<p>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</p>
+<h4>Outlet and Action are ways that ViewController interacts with its view.In fact,they serve different purpose though both of them may look similar during initial days of iOS acquaintance.</h4>
 
-<h3>Outlet</h3>
+<h2>Outlet</h2>
 
-<p><em>ViewController talks to View by using Outlet.</em> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:
--you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
--you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p>
+<h4><em>ViewController talks to View by using Outlet.</em></h4>
+
+<p> Any object(UILabel,UIButton,UIImage,UIView etc) in View can have an Outlet connection to ViewController.Outlet is used as <em>@property</em> in ViewController which means that:</p>
+
+<blockquote><p>you can set something(like Update UILabel&rsquo;s text,Set background image of a UIView etc.)of an object by using outlet.
+you can get something from an object(like current value of UIStepper,current font size of a NSAttributedString etc.)</p></blockquote>
 
 <p>1.The Outlet gives your class(typically a view controller) a reference to a child view in the xib.
 2.The outlet gives the obj-c code access to anobject in IB.
 3.Outlet is used when you want to change some property of control such as text color or text size of a label.</p>
 
-<h3>Action</h3>
+<h2>Action</h2>
 
 <p><em>View pass on messages about view to ViewController by using Action</em>   (Or in technical terms ViewController set itself as <em>target</em> for any <em>Action</em> in View).Action is a <em>Method</em> in ViewController(unlike Outlet which is <em>@property</em> in ViewController).Whenever something(any <em>Event</em>) happens to an object(like UIButton is tapped) then Action pass on message to ViewController.Action(or action method) can do something after receiving the message.</p>
 

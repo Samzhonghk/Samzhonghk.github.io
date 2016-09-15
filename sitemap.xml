@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/08/third-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-08T15:10:43+12:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/07/second-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-07T11:40:08+12:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/06/first-day-of-music-store-project/</loc>
+    <lastmod>2016-09-06T15:32:16+12:00</lastmod>
+  </url>
+  <url>
     <loc>http://samzhonghk.github.io/blog/2016/03/16/outlet-and-action/</loc>
     <lastmod>2016-03-16T20:04:47+13:00</lastmod>
   </url>
@@ -29,10 +41,10 @@
     <lastmod>2016-01-05T19:01:52+13:00</lastmod>
   </url>
   <url>
-    <loc>http://samzhonghk.github.io/archives/</loc>
+    <loc>http://samzhonghk.github.io/blog/</loc>
   </url>
   <url>
-    <loc>http://samzhonghk.github.io/blog/</loc>
+    <loc>http://samzhonghk.github.io/archives/</loc>
   </url>
   <url>
     <loc>http://samzhonghk.github.io/blog/archives/</loc>
