@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-09-15T13:22:09+12:00</updated>
+  <updated>2016-09-15T13:24:07+12:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -976,7 +976,7 @@ The default file extension for new posts is markdown but you can configure that 
 
 <p>Hopefully this is a good start to share my experience with everyone and get started to learn fresh tech stuff.</p>
 
-<p><img class="left" src="http://samzhonghk.github.io/images/ab.jpg" width="350" height="350" title="image" alt="images"></p>
+<p><img class="left" src="http://samzhonghk.github.io/images/ab.JPG" width="350" height="350" title="image" alt="images"></p>
 ]]></content>
   </entry>
   
