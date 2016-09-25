@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-09-25T22:40:26+13:00</updated>
+  <updated>2016-09-25T22:42:35+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -95,47 +95,6 @@
 <p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-RemoveFromCart.jpg" width="550" height="550" title="'shoppingCartController-RemoveFromCart'" ></p>
 
 <p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-CartSummary.jpg" width="650" height="650" title="'shoppingCartController-CartSummary'" ></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Sixth Day of Music Store Project(SamMusicStore)]]></title>
-    <link href="http://samzhonghk.github.io/blog/2016/09/25/sixth-day-of-music-store-project-sammusicstore/"/>
-    <updated>2016-09-25T18:43:22+13:00</updated>
-    <id>http://samzhonghk.github.io/blog/2016/09/25/sixth-day-of-music-store-project-sammusicstore</id>
-    <content type="html"><![CDATA[<!--more-->
-
-
-<h3>Using Data Annotations for Model Validation</h3>
-
-<h4>Now I have a major issue with our Create and Edit forms: they’re not doing any validation. I can do things like leave required fields blank or type letters in the Price field, and the first error we’ll see is from the database.</h4>
-
-<h4>Adding Validation to our Album Forms</h4>
-
-<p>-Required – Indicates that the property is a required field
--DisplayName – Defines the text we want used on form fields and validation messages
--StringLength – Defines a maximum length for a string field
--Range – Gives a maximum and minimum value for a numeric field
--Bind – Lists fields to exclude or include when binding parameter or form values to model properties
--ScaffoldColumn – Allows hiding fields from editor forms</p>
-
-<h4>Edit the validation elements to Album class</h4>
-
-<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/AlbumValidation.jpg" width="550" height="550" title="'Album Validation'" ></p>
-
-<h5>Now Test the validation on the server side</h5>
-
-<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CreateAlbumViewAfterValidation.jpg" width="550" height="550" title="'Create Album View After Validation'" ></p>
-
-<h4>Server-side validation is very important from an application perspective, because users can circumvent client-side validation. However, webpage forms which only implement server-side validation exhibit three significant problems.</h4>
-
-<p>1.The user has to wait for the form to be posted, validated on the server, and for the response to be sent to their browser.
-2.The user doesn’t get immediate feedback when they correct a field so that it now passes the validation rules.
-3.We are wasting server resources to perform validation logic instead of leveraging the user’s browser.</p>
-
-<h4>After inputing the correct information</h4>
-
-<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/correctValidation.jpg" width="550" height="550" title="'Correct Validation'" ></p>
 ]]></content>
   </entry>
   
@@ -338,6 +297,47 @@
 </span><span class='line'><span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;/div&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sixth Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/15/sixth-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-15T17:43:22+12:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/15/sixth-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Using Data Annotations for Model Validation</h3>
+
+<h4>Now I have a major issue with our Create and Edit forms: they’re not doing any validation. I can do things like leave required fields blank or type letters in the Price field, and the first error we’ll see is from the database.</h4>
+
+<h4>Adding Validation to our Album Forms</h4>
+
+<p>-Required – Indicates that the property is a required field
+-DisplayName – Defines the text we want used on form fields and validation messages
+-StringLength – Defines a maximum length for a string field
+-Range – Gives a maximum and minimum value for a numeric field
+-Bind – Lists fields to exclude or include when binding parameter or form values to model properties
+-ScaffoldColumn – Allows hiding fields from editor forms</p>
+
+<h4>Edit the validation elements to Album class</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/AlbumValidation.jpg" width="550" height="550" title="'Album Validation'" ></p>
+
+<h5>Now Test the validation on the server side</h5>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CreateAlbumViewAfterValidation.jpg" width="550" height="550" title="'Create Album View After Validation'" ></p>
+
+<h4>Server-side validation is very important from an application perspective, because users can circumvent client-side validation. However, webpage forms which only implement server-side validation exhibit three significant problems.</h4>
+
+<p>1.The user has to wait for the form to be posted, validated on the server, and for the response to be sent to their browser.
+2.The user doesn’t get immediate feedback when they correct a field so that it now passes the validation rules.
+3.We are wasting server resources to perform validation logic instead of leveraging the user’s browser.</p>
+
+<h4>After inputing the correct information</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/correctValidation.jpg" width="550" height="550" title="'Correct Validation'" ></p>
 ]]></content>
   </entry>
   
