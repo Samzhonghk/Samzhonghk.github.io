@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/25/eighth-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-25T21:40:18+13:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/25/seventh-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-25T18:58:02+13:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/25/sixth-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-25T18:43:22+13:00</lastmod>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/blog/2016/09/25/fifth-day-of-music-store-project-sammusicstore/</loc>
+    <lastmod>2016-09-25T16:07:19+13:00</lastmod>
+  </url>
+  <url>
     <loc>http://samzhonghk.github.io/blog/2016/09/15/fourth-day-of-music-store-project/</loc>
     <lastmod>2016-09-15T13:44:33+12:00</lastmod>
   </url>
@@ -61,5 +77,8 @@
   </url>
   <url>
     <loc>http://samzhonghk.github.io/portfolio/</loc>
+  </url>
+  <url>
+    <loc>http://samzhonghk.github.io/posts/2/</loc>
   </url>
 </urlset>

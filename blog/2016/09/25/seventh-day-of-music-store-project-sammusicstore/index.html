@@ -1,0 +1,236 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>Seventh Day of Music Store Project(SamMusicStore)  | Sam Zhong</title>
+
+<meta name="author" content="Sam Zhong"> 
+
+<meta name="description" content="Shopping Cart with Ajax Updates Allow users to place albums in their cart without registering, but they’ll need to register as guests to complete &hellip;"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Sam Zhong" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Sam Zhong</a></h1>
+<h4>Intern developer who is passionated with Web Application and Mobile Application</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Blog</a></li>
+	<li><a href="/about">About</a></li>
+	<li><a href="/portfolio">Portfolio</a></li>
+	<li><a href="/archives">Archive</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://www.google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:samzhonghk.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Seventh Day of Music Store Project(SamMusicStore)</h2>
+	<div class="entry-content"><!--more-->
+
+
+<h3>Shopping Cart with Ajax Updates</h3>
+
+<h4>Allow users to place albums in their cart without registering, but they’ll need to register as guests to complete checkout. The shopping and checkout process will be separated into two controllers: a ShoppingCart Controller which allows anonymously adding items to a cart, and a Checkout Controller which handles the checkout process. We’ll start with the Shopping Cart in this section, then build the Checkout process in the following section.</h4>
+
+<h5>Adding the Cart, Order, and OrderDetail model classes</h5>
+
+<p><img class="left" src="/images/SamMvc/CartModel.jpg" width="550" height="550" title="'Cart Model'" ></p>
+
+<h5>Order class</h5>
+
+<p><img class="left" src="/images/SamMvc/OrderModel.jpg" width="550" height="550" title="'Order Model'" ></p>
+
+<h5>This class tracks summary and delivery information for an order. It won’t compile yet, because it has an</h5>
+
+<p>OrderDetails navigation property which depends on a class I haven’t created yet. Let’s fix that now by adding a class named OrderDetail.cs, adding the following code.
+<img class="left" src="/images/SamMvc/OrderDetailModel.jpg" width="550" height="550" title="'Order Detail Model'" ></p>
+
+<h4>Update  SamMusicStoreEntities class to include DbSets which expose those new Model classes, also including a DbSet<Artist>. The updated SamMusicStoreEntities class appears as below.</h4>
+
+<p><img class="left" src="/images/SamMvc/UpdatedDbcontextModel.jpg" width="550" height="550" title="'Updated Dbcontext Model'" ></p>
+
+<h3>Managing the Shopping Cart business logic</h3>
+
+<h4>I will create the ShoppingCart class in the Models folder. The ShoppingCart model handles data access to the Cart table. Additionally, it will handle the business logic to for adding and removing items from the shopping cart.</h4>
+
+<h4>The ShoppingCart class exposes the following methods:</h4>
+
+<p>-AddToCart takes an Album as a parameter and adds it to the user’s cart. Since the Cart table tracks quantity for each album, it includes logic to create a new row if needed or just increment the quantity if the user has already ordered one copy of the album.
+-RemoveFromCart takes an Album ID and removes it from the user’s cart. If the user only had one copy of the album in their cart, the row is removed.
+-EmptyCart removes all items from a user’s shopping cart.
+-GetCartItems retrieves a list of CartItems for display or processing.
+-GetCount retrieves a the total number of albums a user has in their shopping cart.
+-GetTotal calculates the total cost of all items in the cart.
+-CreateOrder converts the shopping cart to an order during the checkout phase.
+-GetCart is a static method which allows our controllers to obtain a cart object. It uses the GetCartId method to handle reading the CartId from the user’s session. The GetCartId method requires the HttpContextBase so that it can read the user’s CartId from user’s session.</p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-Index.jpg" width="550" height="550" title="'shoppingCartController-Index method'" ></p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-AddToCart.jpg" width="550" height="550" title="'shoppingCartController-AddToCart method'" ></p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-RemoveFromCart.jpg" width="550" height="550" title="'shoppingCartController-RemoveFromCart'" ></p>
+
+<h4>Now we need to add a View Model folder</h4>
+
+<p><img class="left" src="/images/SamMvc/addViewModelFolder.jpg" width="550" height="550" title="'Add ViewModel Folder'" ></p>
+
+<h4>Now add a ShoppingCartViewModel class in the ViewModels folder</h4>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartViewModel.jpg" width="550" height="550" title="'ShoppingCartViewModel'" ></p>
+
+<h4>Add the shoppingCartRemoveViewModel to the ViewModels folder with the following four properties.</h4>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartRemoveModel.jpg" width="550" height="550" title="'ShoppingCartRemoveModel'" ></p>
+
+<h3>The Shopping Cart Controller</h3>
+
+<blockquote><p>The Shopping Cart controller has three main purposes: adding items to a cart, removing items from the cart, and</p></blockquote>
+
+<p>viewing items in the cart. It will make use of the three classes we just created: ShoppingCartViewModel, ShoppingCartRemoveViewModel, and ShoppingCart. As in the StoreController and StoreManagerController, I will add a field to hold an instance of SamMusicStoreEntities.</p>
+
+<h4>Add a new Shopping Cart controller to the project using the Empty controller template.</h4>
+
+<p><img class="left" src="/images/SamMvc/addShoppingCartController.jpg" width="650" height="650" title="'Add ShoppingCart Controller'" >
+<img class="left" src="/images/SamMvc/addShoppingCartController2.jpg" width="650" height="650" title="'Add ShoppingCart Controller'" ></p>
+
+<h4>Update ShoppingCart controller</h4>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-Index.jpg" width="550" height="550" title="'shoppingCartController-Index method'" ></p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-AddToCart.jpg" width="550" height="550" title="'shoppingCartController-AddToCart method'" ></p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-RemoveFromCart.jpg" width="550" height="550" title="'shoppingCartController-RemoveFromCart'" ></p>
+
+<p><img class="left" src="/images/SamMvc/shoppingCartController-CartSummary.jpg" width="650" height="650" title="'shoppingCartController-CartSummary'" ></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-09-25T18:58:02+13:00" pubdate data-updated="true"></time></div>
+	
+
+
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2016
+
+    Sam Zhong
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

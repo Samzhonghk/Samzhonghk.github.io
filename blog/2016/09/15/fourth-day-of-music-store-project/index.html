@@ -138,6 +138,37 @@ $(document).ready(
 Genres.Include(“Albums”) to indicate that I want related albums as well. This is more efficient, since it will retrieve both our Genre and Album data in a single database request.</p></blockquote>
 
 <p><img class="left" src="/images/SamMvc/BrowseActionMethod.jpg" width="650" height="650" title="image" alt="Browse Action Method"></p>
+
+<h4>Then update the Store Browse to display the albums which are available in each Genre and add a list of Albums in the view template.</h4>
+
+<p><img class="left" src="/images/SamMvc/BrowseListView.jpg" width="650" height="650" title="image" alt="Browse List View"></p>
+
+<h4>Run the application and browsing to /Store/Browse?genre=Jazz shows that our results are now being pulled from the database, displaying all albums in selected Genre.</h4>
+
+<p><img class="left" src="/images/SamMvc/browseGenreJazz.jpg" width="650" height="650" title="image" alt="browse Genre Jazz"></p>
+
+<h4>Make the same change to our /Store/Details/[id] URL, and replace dummy data with a database query which loads an Album whose ID matches the parameter value.</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='C#'><span class='line'><span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Details</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">var</span> <span class="n">album</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Album</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="n">album</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Now the Store Details page is set up to display an album by the Album ID, then update the Browse view to link to the Details view. I will use Html.ActionLink, exactly as I did to link from Store Index to Store Browse at the end of the previous section. The complete source for the Browse view appears below.</h4>
+
+<p><img class="left" src="/images/SamMvc/genreDisplayList.jpg" width="650" height="650" title="image" alt="Genre Display List"></p>
+
+<h4>I am now able to browse from our Store page to a Genre page, which lists the available albums, and by clicking on an album we can view details for that album.</h4>
+
+<p><img class="left" src="/images/SamMvc/displayJazzGenreView.jpg" width="650" height="650" title="image" alt="Display Jazz Genre View"></p>
 </div>
 
 

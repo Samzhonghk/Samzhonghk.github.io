@@ -4,7 +4,7 @@
   <title><![CDATA[Sam Zhong]]></title>
   <link href="http://samzhonghk.github.io/atom.xml" rel="self"/>
   <link href="http://samzhonghk.github.io/"/>
-  <updated>2016-09-15T16:54:00+12:00</updated>
+  <updated>2016-09-25T22:36:28+13:00</updated>
   <id>http://samzhonghk.github.io/</id>
   <author>
     <name><![CDATA[Sam Zhong]]></name>
@@ -12,6 +12,334 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Eighth Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/25/eighth-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-25T21:40:18+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/25/eighth-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Ajax Updates with jQuery</h3>
+
+<blockquote><p>However, instead of using an Html.ActionLink to remove items from the cart, I will use jQuery to “wire up” the click event for all links in this view which have the HTML class RemoveLink. Rather than posting the form, this click event handler will just make an AJAX callback to RemoveFromCart controller action. The RemoveFromCart returns a JSON serialized result, which is automatically passed to the JavaScript method specified in our AjaxOptions OnSuccess parameter – handleUpdate in this case. The handleUpdate Javascript function parses the JSON results and performs four quick updates to the page using jQuery:
+1.Removes the deleted album from the list
+2.Updates the cart count in the header
+3.Displays an update message to the user
+4.Updates the cart total price</p></blockquote>
+
+<h4>Here is the complete code for the ShoppingCart/Index view</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/.jpg" width="550" height="550" title="''" ></p>
+
+<blockquote><p>In order to test this out, I will add items to our shopping cart. I will update Store Details view to include an “Add to cart” button. While at it, I can include some of the Album additional information which I have added since I last updated this view: Genre, Artist, Price, and Album Art. The updated Store Details view code appears as shown below.</p></blockquote>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='Html'><span class='line'>@model SamMvcMusicStore.Models.Album
+</span><span class='line'>
+</span><span class='line'>@{
+</span><span class='line'>
+</span><span class='line'>ViewBag.Title = &quot;Album - &quot; + Model.Title;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;h2&gt;</span>@Model.Title<span class="nt">&lt;/h2&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span><span class='line'><span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">&quot;@Model.Title&quot;</span> <span class="na">src=</span><span class="s">&quot;@Model.AlbumArtUrl&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;album-details&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;em&gt;</span>Genre:<span class="nt">&lt;/em&gt;</span> @Model.Genre.Name
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;em&gt;</span>Artist:<span class="nt">&lt;/em&gt;</span> @Model.Artist.Name
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;em&gt;</span>Price:<span class="nt">&lt;/em&gt;</span> @String.Format(&quot;{0:F}&quot;, Model.Price)
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>
+</span><span class='line'>@Html.ActionLink(&quot;Add to cart&quot;, &quot;AddToCart&quot;, &quot;ShoppingCart&quot;, new { id = Model.AlbumId }, &quot;&quot;)
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Seventh Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/25/seventh-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-25T18:58:02+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/25/seventh-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Shopping Cart with Ajax Updates</h3>
+
+<h4>Allow users to place albums in their cart without registering, but they’ll need to register as guests to complete checkout. The shopping and checkout process will be separated into two controllers: a ShoppingCart Controller which allows anonymously adding items to a cart, and a Checkout Controller which handles the checkout process. We’ll start with the Shopping Cart in this section, then build the Checkout process in the following section.</h4>
+
+<h5>Adding the Cart, Order, and OrderDetail model classes</h5>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CartModel.jpg" width="550" height="550" title="'Cart Model'" ></p>
+
+<h5>Order class</h5>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/OrderModel.jpg" width="550" height="550" title="'Order Model'" ></p>
+
+<h5>This class tracks summary and delivery information for an order. It won’t compile yet, because it has an</h5>
+
+<p>OrderDetails navigation property which depends on a class I haven’t created yet. Let’s fix that now by adding a class named OrderDetail.cs, adding the following code.
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/OrderDetailModel.jpg" width="550" height="550" title="'Order Detail Model'" ></p>
+
+<h4>Update  SamMusicStoreEntities class to include DbSets which expose those new Model classes, also including a DbSet<Artist>. The updated SamMusicStoreEntities class appears as below.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/UpdatedDbcontextModel.jpg" width="550" height="550" title="'Updated Dbcontext Model'" ></p>
+
+<h3>Managing the Shopping Cart business logic</h3>
+
+<h4>I will create the ShoppingCart class in the Models folder. The ShoppingCart model handles data access to the Cart table. Additionally, it will handle the business logic to for adding and removing items from the shopping cart.</h4>
+
+<h4>The ShoppingCart class exposes the following methods:</h4>
+
+<p>-AddToCart takes an Album as a parameter and adds it to the user’s cart. Since the Cart table tracks quantity for each album, it includes logic to create a new row if needed or just increment the quantity if the user has already ordered one copy of the album.
+-RemoveFromCart takes an Album ID and removes it from the user’s cart. If the user only had one copy of the album in their cart, the row is removed.
+-EmptyCart removes all items from a user’s shopping cart.
+-GetCartItems retrieves a list of CartItems for display or processing.
+-GetCount retrieves a the total number of albums a user has in their shopping cart.
+-GetTotal calculates the total cost of all items in the cart.
+-CreateOrder converts the shopping cart to an order during the checkout phase.
+-GetCart is a static method which allows our controllers to obtain a cart object. It uses the GetCartId method to handle reading the CartId from the user’s session. The GetCartId method requires the HttpContextBase so that it can read the user’s CartId from user’s session.</p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-Index.jpg" width="550" height="550" title="'shoppingCartController-Index method'" ></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-AddToCart.jpg" width="550" height="550" title="'shoppingCartController-AddToCart method'" ></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-RemoveFromCart.jpg" width="550" height="550" title="'shoppingCartController-RemoveFromCart'" ></p>
+
+<h4>Now we need to add a View Model folder</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/addViewModelFolder.jpg" width="550" height="550" title="'Add ViewModel Folder'" ></p>
+
+<h4>Now add a ShoppingCartViewModel class in the ViewModels folder</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartViewModel.jpg" width="550" height="550" title="'ShoppingCartViewModel'" ></p>
+
+<h4>Add the shoppingCartRemoveViewModel to the ViewModels folder with the following four properties.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartRemoveModel.jpg" width="550" height="550" title="'ShoppingCartRemoveModel'" ></p>
+
+<h3>The Shopping Cart Controller</h3>
+
+<blockquote><p>The Shopping Cart controller has three main purposes: adding items to a cart, removing items from the cart, and</p></blockquote>
+
+<p>viewing items in the cart. It will make use of the three classes we just created: ShoppingCartViewModel, ShoppingCartRemoveViewModel, and ShoppingCart. As in the StoreController and StoreManagerController, I will add a field to hold an instance of SamMusicStoreEntities.</p>
+
+<h4>Add a new Shopping Cart controller to the project using the Empty controller template.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/addShoppingCartController.jpg" width="650" height="650" title="'Add ShoppingCart Controller'" >
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/addShoppingCartController2.jpg" width="650" height="650" title="'Add ShoppingCart Controller'" ></p>
+
+<h4>Update ShoppingCart controller</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-Index.jpg" width="550" height="550" title="'shoppingCartController-Index method'" ></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-AddToCart.jpg" width="550" height="550" title="'shoppingCartController-AddToCart method'" ></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-RemoveFromCart.jpg" width="550" height="550" title="'shoppingCartController-RemoveFromCart'" ></p>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/shoppingCartController-CartSummary.jpg" width="650" height="650" title="'shoppingCartController-CartSummary'" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sixth Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/25/sixth-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-25T18:43:22+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/25/sixth-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Using Data Annotations for Model Validation</h3>
+
+<h4>Now I have a major issue with our Create and Edit forms: they’re not doing any validation. I can do things like leave required fields blank or type letters in the Price field, and the first error we’ll see is from the database.</h4>
+
+<h4>Adding Validation to our Album Forms</h4>
+
+<p>-Required – Indicates that the property is a required field
+-DisplayName – Defines the text we want used on form fields and validation messages
+-StringLength – Defines a maximum length for a string field
+-Range – Gives a maximum and minimum value for a numeric field
+-Bind – Lists fields to exclude or include when binding parameter or form values to model properties
+-ScaffoldColumn – Allows hiding fields from editor forms</p>
+
+<h4>Edit the validation elements to Album class</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/AlbumValidation.jpg" width="550" height="550" title="'Album Validation'" ></p>
+
+<h5>Now Test the validation on the server side</h5>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CreateAlbumViewAfterValidation.jpg" width="550" height="550" title="'Create Album View After Validation'" ></p>
+
+<h4>Server-side validation is very important from an application perspective, because users can circumvent client-side validation. However, webpage forms which only implement server-side validation exhibit three significant problems.</h4>
+
+<p>1.The user has to wait for the form to be posted, validated on the server, and for the response to be sent to their browser.
+2.The user doesn’t get immediate feedback when they correct a field so that it now passes the validation rules.
+3.We are wasting server resources to perform validation logic instead of leveraging the user’s browser.</p>
+
+<h4>After inputing the correct information</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/correctValidation.jpg" width="550" height="550" title="'Correct Validation'" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fifth Day of Music Store Project(SamMusicStore)]]></title>
+    <link href="http://samzhonghk.github.io/blog/2016/09/25/fifth-day-of-music-store-project-sammusicstore/"/>
+    <updated>2016-09-25T16:07:19+13:00</updated>
+    <id>http://samzhonghk.github.io/blog/2016/09/25/fifth-day-of-music-store-project-sammusicstore</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>In the past a few days, I was trying to load the data from database and displaying it. Now I will also enable editing the data.</h3>
+
+<h3>Now I will create a new controller called StoreManagerController. For this controller, I will be taking advantage of the Scaffolding features available in the ASP.NET MVC Tools Update. Set the options for the Add Controller dialog as shown below.</h3>
+
+<h3>When I click the Add button, you’ll see that the ASP.NET MVC scaffolding mechanism does a good amount of work:</h3>
+
+<p>-It creates the new StoreManagerController with a local Entity Framework variable
+-It adds a StoreManager folder to the project’s Views folder
+-It adds Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml, and Index.cshtml view, strongly typed to the Album class
+<img class="left" src="http://samzhonghk.github.io/images/SamMvc/storeManagerController.jpg" width="650" height="650" title="'Store Manager Controller'" ></p>
+
+<h5>The new StoreManager controller class includes CRUD (create, read, update, delete) controller actions which know how to work with the Album model class and use our Entity Framework context for database access.</h5>
+
+<h4>Start with a quick edit to the StoreManager Index view (/Views/StoreManager/Index.cshtml). This view will display a table which lists the Albums in our store with Edit / Details / Delete links, and includes the Album’s public properties. I will remove the AlbumArtUrl field, as it’s not very useful in this display. In <table> section of the view code, remove the th and td elements surrounding AlbumArtUrl references</h4>
+
+<h3>First Look at the Store Manager</h3>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/indexListDisplay.jpg" width="650" height="650" title="'Index List Display'" ></p>
+
+<h4>To click the Edit link displays an edit form with fields for the Album, including dropdowns for Genres and Artist.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/editAlbum.jpg" width="650" height="650" title="'Edit Album'" ></p>
+
+<h4>Click the “Back to List” link at the bottom, then click on the Details link for an Album. This displays the detail information for an individual Album.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/detailsAlbum.jpg" width="550" height="550" title="'Details Album'" ></p>
+
+<h4>Again, click the Back to List link, then click on a Delete link. This displays a confirmation dialog, showing the album details and asking if sure I want to delete it.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/deleteAlbum.jpg" width="550" height="550" title="'Delete Album'" ></p>
+
+<h4>Clicking the Delete button at the bottom will delete the album and return to the Index page, which shows the album deleted.</h4>
+
+<h4>The index view retrieves a list of Albums, including each album’s referenced Genre and Artist information, as I previously saw when working on the Store Browse method. The Index view is following the references to the linked objects so that it can display each album’s Genre name and Artist name, so the controller is being efficient and querying for this information in the original request.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/storeManagerControllerIndex.jpg" width="550" height="550" title="'StoreManager Controller Index'" ></p>
+
+<h4>The StoreManager Controller’s Details controller action works exactly the same as the Store Controller Details action I wrote previously - it queries for the Album by ID using the Find() method, then returns it to the view.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/StoreManagerControllerDetails.jpg" width="550" height="550" title="'StoreManager Controller Details'" ></p>
+
+<h3>The Create Action Methods</h3>
+
+<h5>When a user first visits /StoreManager/Create/ they will be shown an empty form. This HTML page will contain a <form> element that contains dropdown and textbox input elements where they can enter the album’s details.</h5>
+
+<h5>After the user fills in the Album form values, they can press the “Save” button to submit these changes back to our application to save within the database. When the user presses the “save” button the <form> will perform an HTTP-POST back to the /StoreManager/Create/ URL and submit the <form> values as part of the HTTP-POST.</h5>
+
+<h4>The ViewBag</h4>
+
+<h5>The ViewBag is a dynamic object, meaning that you can type ViewBag.Foo or ViewBag.YourNameHere without writing code to define those properties. In this case, the controller code uses ViewBag.GenreId and ViewBag.ArtistId so that the dropdown values submitted with the form will be GenreId and ArtistId, which are the Album properties they will be setting.</h5>
+
+<h4>The HTTP-GET Create action is pretty simple - two SelectLists are added to the ViewBag, and no model object is passed to the form (since it hasn’t been created yet).</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/storeManagerControllerCreate.jpg" width="650" height="650" title="'StoreManager Controlle Create method'" ></p>
+
+<h5>This action has four responsibilities:</h5>
+
+<p>1.Read the form values
+2.Check if the form values pass any validation rules
+3.if the form submission is valid, save the data and display the updated list
+4.If the form submission is not valid, redisplay the form with validation errors.</p>
+
+<h5>The controller action is processing a form submission that includes values for GenreId and ArtistId (from the drop down list) and textbox values for Title, Price, and AlbumArtUrl. While it’s possible to directly access form values, a better approach is to use the Model Binding capabilities built into ASP.NET MVC. When a controller action takes a model type as a parameter, ASP.NET MVC will attempt to populate an object of that type using form inputs (as well as route and querystring values). It does this by looking for values whose names match properties of the model object, e.g. when setting the new Album object’s GenreId value, it looks for an input with the name GenreId. When you create views using the standard methods in ASP.NET MVC, the forms will always be rendered using property names as input field names, so this the field names will just match up.</h5>
+
+<h4>Saving the submitted values</h4>
+
+<h5>If the form submission passes validation, it’s time to save the values to the database. With Entity Framework, that just requires adding the model to the Albums collection and calling SaveChanges.</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='C#'><span class='line'><span class="n">db</span><span class="p">.</span><span class="n">Album</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">album</span><span class="p">);</span>
+</span><span class='line'><span class="n">db</span><span class="p">.</span><span class="n">SaveChanges</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>Entity Framework generates the appropriate SQL commands to persist the value. After saving the data, we redirect back to the list of Albums so we can see our update. This is done by returning RedirectToAction with the name of the controller action we want displayed. In this case, that’s the Index method.</p></blockquote>
+
+<h4>Now I will test the Create form</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/CreateAlbumViewAfterValidation.jpg" width="550" height="550" title="'Create Album View After Validation'" ></p>
+
+<h4>Deletion follows the same pattern as Edit and Create, using one controller action to display the confirmation form, and another controller action to handle the form submission.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/deleteComfirmSubmit.jpg" width="550" height="550" title="''" ></p>
+
+<h4>Display a form that’s strongly typed to an Album type, using the Delete view content template.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/deleteAlbum.jpg" width="550" height="550" title="'Delete Album'" ></p>
+
+<h4>Clicking the Delete button causes the form to be posted back to the server, which executes the DeleteConfirmed action.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/deleteComfirmMethod.jpg" width="550" height="550" title="'Delete Comfirm Method'" ></p>
+
+<h5>HTTP-POST Delete Controller Action takes the following actions:</h5>
+
+<p>1.Loads the Album by ID
+2.Deletes it the album and save changes
+3.Redirects to the Index, showing that the Album was removed from the list</p>
+
+<h4>The updated screen will be displayed after the confirmation.</h4>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fourth Day of Music Store Project(SamMusicStore)]]></title>
@@ -58,6 +386,37 @@
 Genres.Include(“Albums”) to indicate that I want related albums as well. This is more efficient, since it will retrieve both our Genre and Album data in a single database request.</p></blockquote>
 
 <p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/BrowseActionMethod.jpg" width="650" height="650" title="image" alt="Browse Action Method"></p>
+
+<h4>Then update the Store Browse to display the albums which are available in each Genre and add a list of Albums in the view template.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/BrowseListView.jpg" width="650" height="650" title="image" alt="Browse List View"></p>
+
+<h4>Run the application and browsing to /Store/Browse?genre=Jazz shows that our results are now being pulled from the database, displaying all albums in selected Genre.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/browseGenreJazz.jpg" width="650" height="650" title="image" alt="browse Genre Jazz"></p>
+
+<h4>Make the same change to our /Store/Details/[id] URL, and replace dummy data with a database query which loads an Album whose ID matches the parameter value.</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='C#'><span class='line'><span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Details</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="kt">var</span> <span class="n">album</span> <span class="p">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Album</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nf">View</span><span class="p">(</span><span class="n">album</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Now the Store Details page is set up to display an album by the Album ID, then update the Browse view to link to the Details view. I will use Html.ActionLink, exactly as I did to link from Store Index to Store Browse at the end of the previous section. The complete source for the Browse view appears below.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/genreDisplayList.jpg" width="650" height="650" title="image" alt="Genre Display List"></p>
+
+<h4>I am now able to browse from our Store page to a Genre page, which lists the available albums, and by clicking on an album we can view details for that album.</h4>
+
+<p><img class="left" src="http://samzhonghk.github.io/images/SamMvc/displayJazzGenreView.jpg" width="650" height="650" title="image" alt="Display Jazz Genre View"></p>
 ]]></content>
   </entry>
   
